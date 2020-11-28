@@ -35,6 +35,12 @@ if __name__ == '__main__':
             'Topic :: Multimedia :: Sound/Audio :: Players',
             'Topic :: Multimedia :: Sound/Audio :: Capture/Recording',
             ],
-        ext_modules=[Extension('alsaaudio',['alsaaudio.c'], 
-                               libraries=['asound'])]
+        ext_modules = [
+			Extension(
+				name = 'alsaaudio',
+				sources = ['alsaaudio.c'],
+				extra_compile_args = ['-std=c99'],
+				libraries = ['asound']
+			)
+		]
     )
